@@ -1,7 +1,7 @@
 <component name="libraryTable">
   <library name="givenEnvironment">
     <CLASSES>
-      <root url="jar://$USER_HOME$/Downloads/givenEnvironment.jar!/" />
+      <root url="jar://$PROJECT_DIR$/givenEnvironment.jar!/" />
     </CLASSES>
     <JAVADOC />
     <SOURCES />

@@ -2,6 +2,9 @@ package src.gameCommons;
 
 import java.awt.Color;
 import java.util.Random;
+import src.util.Case;
+
+import javax.swing.text.Position;
 
 import src.graphicalElements.Element;
 import src.graphicalElements.IFroggerGraphics;
@@ -16,7 +19,7 @@ public class Game {
 	public final int minSpeedInTimerLoops;
 	public final double defaultDensity;
 
-	// Lien aux objets utilis�s
+	// Lien aux objets utilisés
 	private IEnvironment environment;
 	private IFrog frog;
 	private IFroggerGraphics graphic;
@@ -70,25 +73,30 @@ public class Game {
 	}
 
 	/**
-	 * Teste si la partie est perdue et lance un �cran de fin appropri� si tel
+	 * Teste si la partie est perdue et lance un écran de fin approprié si tel
 	 * est le cas
 	 * 
 	 * @return true si le partie est perdue
 	 */
 	public boolean testLose() {
-		// TODO
-		return false;
+		if(environment.isSafe(frog.getPosition())){
+			return false;
+		}
+		graphic.endGameScreen("You Lose !");
+		return true;
 	}
 
 	/**
-	 * Teste si la partie est gagnee et lance un �cran de fin appropri� si tel
+	 * Teste si la partie est gagnee et lance un écran de fin approprié si tel
 	 * est le cas
 	 * 
 	 * @return true si la partie est gagn�e
 	 */
 	public boolean testWin() {
-		// TODO
-		return false;
+		if(frog.getPosition().ord==height-1){
+			graphic.endGameScreen("You Win !");
+			return true;
+		}return false;
 	}
 
 	/**

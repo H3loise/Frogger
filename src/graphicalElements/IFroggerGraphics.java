@@ -21,13 +21,13 @@ public interface IFroggerGraphics {
     public void repaint();
     
     /**
-     * Lie la grenouille � l'environneemnt graphique
+     * Lie la grenouille à l'environneemnt graphique
      * @param frog
      */
     public void setFrog(IFrog frog);
     
     /**
-     * Lance un �cran de fin de partie
+     * Lance un écran de fin de partie
      * @param message le texte � afficher
      */
     public void endGameScreen(String message);

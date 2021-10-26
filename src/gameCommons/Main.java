@@ -5,12 +5,11 @@ import java.awt.event.ActionListener;
 
 import javax.swing.Timer;
 
-import givenEnvironment.GivenEnvironment;
+import src.givenEnvironment.GivenEnvironment;
 import src.graphicalElements.FroggerGraphic;
 import src.graphicalElements.IFroggerGraphics;
 import src.frog.Frog;
 
-import gameCommons.Game;
 
 
 public class Main {
