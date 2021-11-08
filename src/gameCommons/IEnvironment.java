@@ -23,7 +23,7 @@ public interface IEnvironment {
 	public boolean isWinningPosition(Case c);
 
 	/**
-	 * Effectue une �tape d'actualisation de l'environnement
+	 * Effectue une étape d'actualisation de l'environnement
 	 */
 	public void update();
 
