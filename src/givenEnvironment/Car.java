@@ -23,6 +23,9 @@ public class Car {
       this.leftPosition = new Case(leftToRight ? frontPosition.absc - this.length : frontPosition.absc, frontPosition.ord);
    }
 
+  public boolean  isSafe(Case c){
+      return true;
+   }
    public void move(boolean b) {
       if (b) {
          this.leftPosition = new Case(this.leftPosition.absc + (this.leftToRight ? 1 : -1), this.leftPosition.ord);

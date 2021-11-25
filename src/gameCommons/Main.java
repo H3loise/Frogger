@@ -8,6 +8,7 @@ import javax.swing.Timer;
 import src.givenEnvironment.GivenEnvironment;
 import src.graphicalElements.FroggerGraphic;
 import src.graphicalElements.IFroggerGraphics;
+import src.environment.Environment;
 import src.frog.Frog;
 
 
@@ -32,7 +33,7 @@ public class Main {
 		game.setFrog(frog);
 		graphic.setFrog(frog);
 		//Création et liaison de l'environnement
-		IEnvironment env = new GivenEnvironment(game);
+		IEnvironment env = new Environment(game);
 		game.setEnvironment(env);
 				
 		//Boucle principale : l'environnement s'acturalise tous les tempo milisecondes
