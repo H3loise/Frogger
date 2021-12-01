@@ -12,7 +12,7 @@ public interface IFrog {
 	public Case getPosition();
 	
 	/**
-	 * Donne la direction de la grenouille, c'est � dire de son dernier mouvement 
+	 * Donne la direction de la grenouille, c'est à dire de son dernier mouvement
 	 * @return
 	 */
 	public Direction getDirection();
