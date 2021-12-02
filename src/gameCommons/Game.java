@@ -19,13 +19,13 @@ public class Game {
 	public final int minSpeedInTimerLoops;
 	public final double defaultDensity;
 
-	// Lien aux objets utilisés
+	// Lien aux objets utilis�s
 	private IEnvironment environment;
 	private IFrog frog;
 	private IFroggerGraphics graphic;
 
 	/**
-	 * 
+	 *
 	 * @param graphic
 	 *            l'interface graphique
 	 * @param width
@@ -47,8 +47,8 @@ public class Game {
 	}
 
 	/**
-	 * Lie l'objet frog à la partie
-	 * 
+	 * Lie l'objet frog � la partie
+	 *
 	 * @param frog
 	 */
 	public void setFrog(IFrog frog) {
@@ -57,15 +57,19 @@ public class Game {
 
 	/**
 	 * Lie l'objet environment a la partie
-	 * 
+	 *
 	 * @param environment
 	 */
 	public void setEnvironment(IEnvironment environment) {
 		this.environment = environment;
 	}
 
+	public IEnvironment getEnvironment(){
+		return this.environment;
+	}
+
 	/**
-	 * 
+	 *
 	 * @return l'interface graphique
 	 */
 	public IFroggerGraphics getGraphic() {
@@ -73,31 +77,25 @@ public class Game {
 	}
 
 	/**
-	 * Teste si la partie est perdue et lance un écran de fin approprié si tel
+	 * Teste si la partie est perdue et lance un �cran de fin appropri� si tel
 	 * est le cas
-	 * 
+	 *
 	 * @return true si le partie est perdue
 	 */
 	public boolean testLose() {
 		if(environment.isSafe(frog.getPosition())){
 			return false;
 		}
-		graphic.endGameScreen("You Lose !");
+		graphic.endGameScreen("You Died. Your Score : "+this.Score());
 		return true;
 	}
 
 	/**
-	 * Teste si la partie est gagnee et lance un écran de fin approprié si tel
+	 * Teste si la partie est gagnee et lance un �cran de fin appropri� si tel
 	 * est le cas
-	 * 
+	 *
 	 * @return true si la partie est gagn�e
 	 */
-	public boolean testWin() {
-		if(frog.getPosition().ord==height-1){
-			graphic.endGameScreen("You Win !");
-			return true;
-		}return false;
-	}
 
 	/**
 	 * Actualise l'environnement, affiche la grenouille et verifie la fin de
@@ -106,9 +104,12 @@ public class Game {
 	public void update() {
 		graphic.clear();
 		environment.update();
-		this.graphic.add(new Element(frog.getPosition(), Color.GREEN));
+		this.graphic.add(new Element(new Case(this.frog.getPosition().absc,1), Color.GREEN));
 		testLose();
-		testWin();
+	}
+
+	public int Score(){
+		return this.frog.getPosition().ord-1;
 	}
 
 }

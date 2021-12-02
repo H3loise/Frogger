@@ -22,6 +22,8 @@ public interface IEnvironment {
 	 */
 	public boolean isWinningPosition(Case c);
 
+	public void NouvelleRoute();
+
 	/**
 	 * Effectue une étape d'actualisation de l'environnement
 	 */

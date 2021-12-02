@@ -5,7 +5,6 @@ import java.awt.event.ActionListener;
 
 import javax.swing.Timer;
 
-import src.givenEnvironment.GivenEnvironment;
 import src.graphicalElements.FroggerGraphic;
 import src.graphicalElements.IFroggerGraphics;
 import src.environment.Environment;
@@ -22,7 +21,7 @@ public class Main {
 		int height = 20;
 		int tempo = 100;
 		int minSpeedInTimerLoops = 3;
-		double defaultDensity = 0.2;
+		double defaultDensity = 0.02;
 		
 		//Création de l'interface graphique
 		IFroggerGraphics graphic = new FroggerGraphic(width, height);

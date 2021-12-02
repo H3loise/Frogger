@@ -21,7 +21,7 @@ public class Environment implements IEnvironment {
         this.routes=new ArrayList<>();
         new Lane(g,0,game.randomGen.nextInt(game.minSpeedInTimerLoops) + 1,true, 0);
         new Lane(g,1,game.randomGen.nextInt(game.minSpeedInTimerLoops) + 1,true, 0);
-        for(int i=2; i<game.height;i++){
+        for(int i=2; i<game.height+10;i++){
             double d = Math.random();
             d=d*2;
             int n=(int)d;
@@ -30,6 +30,9 @@ public class Environment implements IEnvironment {
             }else {
                 this.routes.add(new Lane(g, i, game.randomGen.nextInt(game.minSpeedInTimerLoops) + 1, true));
             }
+        }
+        for(int i=0;i<60;i++){
+            this.update();
         }
     }
 
@@ -51,5 +54,32 @@ public class Environment implements IEnvironment {
         if(c.ord==game.height - 1) {
             return true;
         }return false;
+    }
+
+    public ArrayList<Lane> getRoutes(){
+        return this.routes;
+    }
+
+
+    public void NouvelleRoute(){
+        double d = Math.random();
+        d=d*2;
+        int n=(int)d;
+        if(n==0){
+            Lane l1=new Lane(this.game,this.routes.size()-1,game.randomGen.nextInt(game.minSpeedInTimerLoops) + 1,false);
+            this.routes.add(l1);
+            for(int i=0;i<20;i++){
+                l1.update();
+            }
+        }else {
+            Lane l2=new Lane(this.game,this.routes.size()-1,game.randomGen.nextInt(game.minSpeedInTimerLoops) + 1,true);
+            this.routes.add(l2);
+            for(int i=0;i<20;i++){
+                l2.update();
+            }
+        }
+        for(int i=0;i<20;i++){
+
+        }
     }
 }

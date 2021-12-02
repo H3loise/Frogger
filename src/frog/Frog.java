@@ -4,17 +4,19 @@ import src.gameCommons.Game;
 import src.gameCommons.IFrog;
 import src.util.Direction;
 import src.util.Case;
+import src.gameCommons.IEnvironment;
+import src.environment.Environment;
 
 import java.util.ArrayList;
 
 public class Frog implements IFrog{
-	
+
 	private Game game;
 	Case position;
 	Direction direction;
 
 	public Frog(Game game){
-		Case position= new Case(game.width/2,0);
+		Case position= new Case(game.width/2,1);
 		this.game=game;
 		this.direction=Direction.up;
 		this.position=position;
@@ -30,9 +32,12 @@ public class Frog implements IFrog{
 
 	public void move(Direction key){
 		this.direction=key;
-		if(key==Direction.up && this.position.ord<this.game.height){
+		if(key==Direction.up){
 			Case newCase= new Case(this.position.absc,this.position.ord+1);
 			this.position=newCase;
+			IEnvironment newEnv= this.game.getEnvironment();
+			newEnv.NouvelleRoute();
+			this.game.setEnvironment(newEnv);
 		}if(key==Direction.down && this.position.ord>0){
 			Case newCase= new Case(this.position.absc,this.position.ord-1);
 			this.position=newCase;
@@ -43,6 +48,7 @@ public class Frog implements IFrog{
 			Case newCase=new Case(this.position.absc+1,this.position.ord);
 			this.position=newCase;
 		}
+		System.out.println("(" + this.position.absc + "; " + this.position.ord+ ")");
 	}
 
 
